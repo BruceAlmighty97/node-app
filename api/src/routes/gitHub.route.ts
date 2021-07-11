@@ -1,5 +1,5 @@
 import express from 'express'
-import request from 'request'
+import axios from 'axios'
 import { GitHubPRRequestModel } from '../models/gitHubPRRequest.model';
 
 export class GitHubRoute {
@@ -20,21 +20,21 @@ export class GitHubRoute {
             else {
                 const matchArray = gitHubUrl.match(this.regex);
                 if (matchArray) {
-                    request.get(
+                    axios.get(
                         `https://api.github.com/repos/${matchArray[1]}/${matchArray[2]}/pulls`,
-                        {headers: {'user-agent': 'node.js'}},
-                        function(error, response, body) {
-                            if (error) {
-                                res.status(500).send();
-                            }
-                            else if (JSON.parse(body)?.message === "Not Found") {
-                                res.status(404).send();
-                            }
-                            else {
-                                res.status(200).json(body);
-                            }
+                        {headers: {'user-agent': 'node.js'}}
+                    )
+                    .then((response) => {
+                        res.status(200).json(response.data);
+                    }, (error) => {
+                        if (error.response.status === 404) {
+                            res.status(404).send();
                         }
-                    );
+                        else {
+                            res.status(500).send();
+                        }
+                    });
+                    
                 }
                 else {
                     res.status(400).send('invalid request');
