@@ -4,7 +4,7 @@ import { GitHubPRRequestModel } from '../models/gitHubPRRequest.model';
 
 export class GitHubRoute {
     private app: express.Application;
-    private regex = new RegExp('https:\/\/github.com\/([^\/]+)\/([^\/]+)');
+    private regex = new RegExp('https:\/\/github.com\/([^\/]+)\/([^\/\.]+)(\.git)*');
 
     constructor(app: express.Application) {
         this.app = app;
