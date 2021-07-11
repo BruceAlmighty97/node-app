@@ -24,7 +24,15 @@ export class GitHubRoute {
                         `https://api.github.com/repos/${matchArray[1]}/${matchArray[2]}/pulls`,
                         {headers: {'user-agent': 'node.js'}},
                         function(error, response, body) {
-                            res.status(200).json(body);
+                            if (error) {
+                                res.status(500).send();
+                            }
+                            else if (JSON.parse(body)?.message === "Not Found") {
+                                res.status(404).send();
+                            }
+                            else {
+                                res.status(200).json(body);
+                            }
                         }
                     );
                 }
