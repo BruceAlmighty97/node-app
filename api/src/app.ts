@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import { runningMessage } from './index';
 import { GitHubRoute } from './routes/gitHub.route';
 
 export const app: express.Application = express();
@@ -12,5 +11,5 @@ app.use(cors());
 gitHubRoute = new GitHubRoute(app);
 
 app.get('/', (req: express.Request, res: express.Response) => {
-    res.status(200).send(runningMessage);
+    res.status(200).send('node app running');
 });

@@ -9,5 +9,9 @@
     },
     "watchOptions": {
         "watchFile": "useFsEvents"
-    }
+    },
+    "exclude": [
+      "src/**/*.test.ts",
+      "jest.config.ts",
+    ],
   }
