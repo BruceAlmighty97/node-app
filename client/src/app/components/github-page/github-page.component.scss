@@ -1,0 +1,17 @@
+.page-contents {
+    width: 95%;
+    max-width: 1024px;
+    margin: 0px auto;
+}
+
+input {
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px 10px;
+    margin-left: 10px;
+    width: 50%;
+
+    &.ng-invalid.ng-touched {
+        border-color: #bf0000;
+    }
+}
