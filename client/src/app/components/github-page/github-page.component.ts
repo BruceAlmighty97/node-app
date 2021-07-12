@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { GithubPRRequestModel } from 'src/app/models/github-pr-request.model';
+import { GithubPRResponseModel } from 'src/app/models/github-pr-response.model';
 import { GithubApiService } from 'src/app/services/github-api.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { GithubApiService } from 'src/app/services/github-api.service';
 })
 export class GithubPageComponent implements OnInit {
   public gitHubUrl: FormControl;
+  public responseArray: GithubPRResponseModel[] = [];
 
   constructor(private githubApi: GithubApiService) { }
 
@@ -22,6 +24,7 @@ export class GithubPageComponent implements OnInit {
       gitHubUrl: this.gitHubUrl.value
     }
     this.githubApi.getOpenPrs(request).subscribe(response => {
+      this.responseArray = response;
       console.log(response);
     })
   }

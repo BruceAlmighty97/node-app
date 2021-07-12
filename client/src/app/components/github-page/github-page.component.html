@@ -7,5 +7,8 @@
             (click)="submit()"
         >Check</button>
     </div>
+    <div *ngFor="let record of responseArray">
+        <app-github-pr-record [record]="record"></app-github-pr-record>
+    </div>
 </div>
 
