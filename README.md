@@ -10,3 +10,5 @@ This application has a node app api and an angular client
 * navigate to /client
 * run "npm install"
 * run "npm start"
+
+> Note: you will need to do this in separate command windows
