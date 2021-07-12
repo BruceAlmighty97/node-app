@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { GithubPRRequestModel } from 'src/app/models/github-pr-request.model';
 import { GithubApiService } from 'src/app/services/github-api.service';
 
 @Component({
@@ -17,7 +18,12 @@ export class GithubPageComponent implements OnInit {
   }
 
   submit(): void {
-    alert('submit');
+    const request: GithubPRRequestModel = {
+      gitHubUrl: this.gitHubUrl.value
+    }
+    this.githubApi.getOpenPrs(request).subscribe(response => {
+      console.log(response);
+    })
   }
 
 }
