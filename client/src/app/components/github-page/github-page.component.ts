@@ -8,12 +8,16 @@ import { GithubApiService } from 'src/app/services/github-api.service';
   styleUrls: ['./github-page.component.scss']
 })
 export class GithubPageComponent implements OnInit {
-  public gitHubUrl: FormControl
+  public gitHubUrl: FormControl;
 
   constructor(private githubApi: GithubApiService) { }
 
   ngOnInit(): void {
     this.gitHubUrl = new FormControl('', [Validators.required]);
+  }
+
+  submit(): void {
+    alert('submit');
   }
 
 }

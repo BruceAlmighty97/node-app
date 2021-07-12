@@ -1,5 +1,11 @@
 <div class="page-contents">
-    <label for="gitHubUrl">Url for repo: </label>
-    <input id="gitHubUrl" type="text" [formControl]="gitHubUrl">
+    <div class="form-wrapper">
+        <label for="gitHubUrl">Url for repo: </label>
+        <input id="gitHubUrl" type="text" [formControl]="gitHubUrl"/>
+        <button
+            [attr.disabled]="gitHubUrl.valid ? null : ''"
+            (click)="submit()"
+        >Check</button>
+    </div>
 </div>
 

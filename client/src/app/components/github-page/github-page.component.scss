@@ -4,12 +4,23 @@
     margin: 0px auto;
 }
 
+.form-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    height: 37px;
+}
+
 input {
     border: 1px solid gray;
     border-radius: 4px;
     padding: 10px 10px;
     margin-left: 10px;
-    width: 50%;
+    margin-right: 10px;
+    flex-grow: 2;
 
     &.ng-invalid.ng-touched {
         border-color: #bf0000;
