@@ -6,6 +6,9 @@ This application has a node app api and an angular client
 * run "npm install"
 * run "npm start"
 
+### To run the api unit tests/coverage report:
+* after npm install, run "npm run test"
+
 ### To run the angular app:
 * navigate to /client
 * run "npm install"
