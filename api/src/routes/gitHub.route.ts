@@ -27,7 +27,7 @@ export class GitHubRoute {
                     .then((response) => {
                         res.status(200).json(response.data);
                     }, (error) => {
-                        if (error.response.status === 404) {
+                        if (error?.response?.status === 404) {
                             res.status(404).send();
                         }
                         else {
